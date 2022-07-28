@@ -11,6 +11,7 @@ import dateFormat from "dateformat";
 export default function Event({ event }: { event: any }) {
 
     const [open, setOpen] = React.useState(false);
+    const [readed, setReaded] = React.useState(false);
 
     const handleClick = () => {
         setOpen(!open);
@@ -18,8 +19,8 @@ export default function Event({ event }: { event: any }) {
 
     return (
         <>
-            <List>
-                <ListItemButton onClick={handleClick}>
+            <List >
+                <ListItemButton  onClick={handleClick}>
                     <ListItemIcon>
                         <EventAvailableIcon />
                     </ListItemIcon>

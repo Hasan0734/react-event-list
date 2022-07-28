@@ -5,7 +5,7 @@ import Events from './components/Events/Events';
 
 function App() {
   return (
-    <Box sx={{p: 5}}>
+    <Box sx={{p: 5,}}>
       <Typography sx={{fontWeight: 'bold', textAlign: 'center'}} variant="h3" color="primary">Events</Typography>
    
       <Events/>
