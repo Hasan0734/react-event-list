@@ -28,7 +28,7 @@ export default function Events() {
   return (
     <SkeletonTheme
       duration={2}>
-      <Box>
+      <Box sx={{mt: 3}}> 
         {/* 
       <Box sx={{textAlign: 'center', mt: 2}}>
         {isLoading && <CircularProgress />}
