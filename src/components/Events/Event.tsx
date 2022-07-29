@@ -1,3 +1,4 @@
+// import here
 import * as React from 'react'
 import { List, ListItemButton, ListItemIcon, ListItemText, Collapse, Typography } from '@mui/material';
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
@@ -14,6 +15,9 @@ export default function Event({ event }: { event: any }) {
     const [open, setOpen] = React.useState(false);
     const [readed, setReaded] = React.useState(false);
 
+
+    // list open function and already readed
+
     const handleClick = () => {
         if (!readed) {
 
@@ -26,6 +30,7 @@ export default function Event({ event }: { event: any }) {
             }
         } else {
             setOpen(false);
+            
             toast.success('Event readed')
         }
 
@@ -34,6 +39,8 @@ export default function Event({ event }: { event: any }) {
     return (
         <>
             <List >
+                {/* list button */}
+
                 <ListItemButton sx={{ background: '#e5e5e5', color: `${readed && 'gray'}` }} onClick={handleClick}>
                     <ListItemIcon>
                         <EventAvailableIcon sx={{ color: `${readed && 'gray'}` }} />
@@ -45,6 +52,9 @@ export default function Event({ event }: { event: any }) {
                     {!open && (!readed ? <ExpandMore /> : '')}
                     {(open || readed) && <CheckBoxOutlinedIcon />}
                 </ListItemButton>
+
+
+                {/* {collapse area} */}
                 <Collapse in={open} timeout="auto" unmountOnExit>
                     <Box sx={{ pl: 4 }}>
                         <Typography sx={{visibility: {xs: 'visible', md: 'hidden'}}}>

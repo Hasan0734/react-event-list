@@ -1,4 +1,4 @@
-import { Box, CircularProgress, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import * as  React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import Event from './Event';
@@ -19,26 +19,24 @@ export default function Events() {
       setisLoading(false)
     }, 5000);
     return () => clearTimeout(timer);
+  }, [dispatch])
 
-
-  }, [])
-
-  // --base-color: #313131a6;
-  // --highlight-color: #5252528f;
   return (
-    <SkeletonTheme
-      duration={2}>
-      <Box sx={{mt: 3}}> 
-        {/* 
-      <Box sx={{textAlign: 'center', mt: 2}}>
-        {isLoading && <CircularProgress />}
-      </Box> */}
-        {isLoading && Array(events?.data?.length || 4).fill(0).map((event, i) =>  <EventSkeleton key={i}/>)}
+    <SkeletonTheme   //skeleton theme give here props
+      duration={2}> 
 
+      <Box sx={{ mt: 3 }}>
+
+        {/* show the skeleton list maping*/}
+
+        {isLoading && Array(events?.data?.length || 4).fill(0).map((event, i) => <EventSkeleton key={i} />)}
+
+        {/* event list maping */}
         {isLoading === false && (events?.data?.length > 0 ? events?.data?.map((event: any, i: number) => <Event key={++i} event={event} />) : <Typography>Event not available</Typography>)}
 
-        {error && <Typography>{error}</Typography>}
 
+        {/* fetch data any error show here */}
+        {error && <Typography>{error}</Typography>}
 
       </Box>
     </SkeletonTheme>

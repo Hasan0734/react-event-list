@@ -1,35 +1,24 @@
 import * as React from 'react'
-import { List, ListItemButton, ListItemIcon, ListItemText} from '@mui/material';
+import { List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 
 import Skeleton from 'react-loading-skeleton'
-
-
 export default function EventSkeleton() {
-    // const [open, setOpen] = React.useState(false);
+    return (
+        <List >
+            <ListItemButton sx={{ background: '#0000000a' }}>
 
-    // const handleClick = () => {
-    //     setOpen(!open);
-    // };
+                <ListItemIcon>
+                    <ListItemText sx={{ m: 1 }} primary={<Skeleton />} />
+                </ListItemIcon>
 
-    return(
-         <List >
-        <ListItemButton sx={{background: '#0000000a'}}>
-            <ListItemIcon>
-            <ListItemText sx={{ m: 1 }} primary={<Skeleton />} />
-            </ListItemIcon>
-            <ListItemText sx={{ m: 1 }} primary={<Skeleton />} />
-            <ListItemText sx={{ m: 1 }} primary={<Skeleton />} />
+                <ListItemText sx={{ m: 1 }} primary={<Skeleton />} />
+                <ListItemText sx={{ m: 1 }} primary={<Skeleton />} />
 
-            <ListItemIcon>
-            <ListItemText sx={{ m: 1 }} primary={<Skeleton />} />
-            </ListItemIcon>
-        </ListItemButton>
-        {/* <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box sx={{ pl: 4 }}>
-                <Typography><Skeleton /></Typography>
-            </Box>
-        </Collapse> */}
-    </List>)
-     
-    
+                <ListItemIcon>
+                    <ListItemText sx={{ m: 1 }} primary={<Skeleton />} />
+                </ListItemIcon>
+            </ListItemButton>
+        </List>)
+
+
 }
